@@ -82,6 +82,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'USER': 'postgres',
         'PASSWORD': 'marcin7',
+    },
+    'tes': {
+        'HOST': '127.0.0.1',
+        'NAME': 'tes2_db',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'postgres',
+        'PASSWORD': 'marcin7',
     }
 }
 

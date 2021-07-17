@@ -22,7 +22,7 @@ class LoginView(FormView):
     # logowanie i authentykacja
     form_class = LogForm
     template_name = "login.html"
-    success_url = "/"
+    success_url = "home"
 
     def form_valid(self, form):
         username = form.cleaned_data["username"]

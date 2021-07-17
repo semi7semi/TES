@@ -11,6 +11,18 @@
 <body>
     <header>
         <p>Witaj w APP_2</p>
+                <nav>
+
+         <div>
+             <ul>
+                 <li>
+                     <a href="{% url 'logout' %}">
+                         <span>Wyloguj</span>
+                     </a>
+                 </li>
+             </ul>
+         </div>
+        </nav>
     </header>
 <div>
     {% if request.user.is_authenticated %}

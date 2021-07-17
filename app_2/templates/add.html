@@ -1,6 +1,7 @@
 {% extends "base2.html" %}
 {% block title %}{% endblock title %}
 {% block content %}
+<p>{{hello}}</p>
 <div>
     <p>Lista uzytkowników</p>
     <ol>
@@ -10,28 +11,12 @@
         </li>
         {% endfor %}
     </ol>
-
-        <form action="" method="POST">
+</div>
+    <form action="" method="POST">
         {{ form.as_p }}
         <input type="submit" value="Dodaj">
         {% csrf_token %}
     </form>
-    <table>
-        <tr>
-            <th>Nazwa</th>
-            <th>Cena</th>
-            <th>Data</th>
-        </tr>
-        {% for record in data %}
-        <tr>
-            <td>{{ record.name }}</td>
-            <td>{{ record.price }}</td>
-            <td>{{ record.date }}</td>
-        </tr>
-        {% endfor %}
-
-    </table>
-</div>
 
 
 {% endblock content %}
