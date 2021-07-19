@@ -1,15 +1,13 @@
-from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from app_2.forms import CompanyForm, SearchForm
 from app_2.models import Companies
 
 
-
-
-class Index2(View):
+class Index2(LoginRequiredMixin, View):
     def get(self, request):
         users = User.objects.all()
         form = SearchForm()
@@ -27,7 +25,7 @@ class Index2(View):
             name = form.cleaned_data["name"]
             date_from = form.cleaned_data["date_from"]
             date_to = form.cleaned_data["date_to"]
-            if not date_from or not date_to:
+            if not date_from and not date_to:
                 data = Companies.objects.filter(name=name)
             elif not date_from:
                 data = Companies.objects.filter(name=name).filter(date__lte=date_to)
@@ -36,7 +34,7 @@ class Index2(View):
             else:
                 data = Companies.objects.filter(name=name).filter(date__lte=date_to).filter(date__gte=date_from)
             ctx = {
-                "data": data
+                "data": data.order_by("date")
             }
             return render(request, "list.html", ctx)
 
