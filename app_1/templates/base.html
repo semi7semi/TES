@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock title %} Aplikacja TES</title>
+</head>
+<body>
+    <header>
+        <p>Witaj w APP_1</p>
+        <nav>
+
+         <div>
+             <ul>
+                 <li>
+                     <a href="{% url 'logout' %}">
+                         <span>Wyloguj</span>
+                     </a>
+                 </li>
+                 <li>
+                     <a href="{% url 'login' %}">
+                         <span>Zaloguj</span>
+                     </a>
+                 </li>
+                 <li>
+                     <a  href="{% url 'register' %}">
+                         <span>Rejestracja</span>
+                     </a>
+                 </li>
+             </ul>
+         </div>
+        </nav>
+    </header>
+<div>
+    {% if request.user.is_authenticated %}
+    <span>Witaj {{ request.user.first_name }}</span>
+    {% endif %}
+</div>
+    <section>
+        <div>
+
+{% block content %}{% endblock content %}
+
+        </div>
+    </section>
+</body>
+</html>
