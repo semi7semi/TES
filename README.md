@@ -1,1 +1,3 @@
 # TES
+
+Aplikacja rekrutacyjna
