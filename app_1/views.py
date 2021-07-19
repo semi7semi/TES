@@ -1,10 +1,7 @@
-from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import FormView
-from datetime import datetime
 from django.contrib.auth.models import User
 from app_1.forms import LogForm, RegisterUserForm
 
