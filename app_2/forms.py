@@ -10,6 +10,6 @@ class CompanyForm(forms.Form):
 
 
 class SearchForm(forms.Form):
-    name = forms.ModelChoiceField(queryset=Companies.objects.all().distinct("name"), label='Nazwa')
-    date_from = forms.DateField(required=False, label='Data od')
+    name = forms.ModelChoiceField(queryset=Companies.objects.all().using("tes").distinct("name"), label='Nazwa')
+    date_from = forms.DateField(required=False, label='Data od', help_text="yyyy-mm-dd")
     date_to = forms.DateField(required=False, label='Data do')
