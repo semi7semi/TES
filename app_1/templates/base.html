@@ -15,11 +15,13 @@
 
          <div>
              <ul>
+                 {% if request.user.is_authenticated %}
                  <li>
                      <a href="{% url 'logout' %}">
                          <span>Wyloguj</span>
                      </a>
                  </li>
+                 {% endif %}
                  <li>
                      <a href="{% url 'login' %}">
                          <span>Zaloguj</span>
